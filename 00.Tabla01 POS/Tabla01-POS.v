@@ -1,4 +1,4 @@
-module Tabla01 POS();
+  module Tabla01-SOP();
 
   reg A, B, C;
   wire or01, or02, or03, or04, or05, notA, notB, notC, out;
@@ -15,7 +15,7 @@ module Tabla01 POS();
 
   initial begin
     $display("A B C | Y");
-    $display("-------");
+
     $monitor("%b %b %b | %b", A, B, C, out);
        A = 0; B = 0; C= 0;
     #1 A = 0; B = 0; C= 1;
@@ -28,10 +28,6 @@ module Tabla01 POS();
     #1 $finish;
   end
 
-  initial
-    begin
-      $dumpfile("ejemplo_tb.vcd");
-      $dumpvars(0, ejemplo);
-    end
+
 
 endmodule
