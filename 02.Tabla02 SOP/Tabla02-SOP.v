@@ -1,13 +1,12 @@
-  module Tabla01-SOP();
+  module Tabla02-SOP();
 
   reg A, B, C;
-  wire andA, andB, andC, andD, notA, notB, notC, out;
+  wire andA, andB, andC, notA, notB, notC, out;
 
-  or 1(out, andA, andB, andC, andD);
-  and 1(andA, A, B, notC);
-  and 3(andB, a, notB, notC);
-  and 2(andC, notA, notB, C);
-  and 4(andD, notA, notB, notC);
+  or 1(out, andA, andB, andC);
+  and 1(andA, notA, notB, C);
+  and 2(andB, A, B, notC);
+  and 3(andC, A, B, C);
   not 1(notA, A);
   not 2(notB, B);
   not 3(notC, C);
@@ -27,6 +26,4 @@
     #1 $finish;
   end
 
-
-
-endmodule
+endmodule  //Revisada

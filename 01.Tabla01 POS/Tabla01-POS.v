@@ -1,14 +1,13 @@
   module Tabla01-POS();
 
   reg A, B, C;
-  wire orA, orB, orC, orD, orE, notA, notB, notC, out;
+  wire orA, orB, orC, orD, notA, notB, notC, out;
 
-  or 1(orA, notA, notB, notC);
-  or 2(orB, notA, B, notC);
-  or 3(orC, A, notB, notC);
-  or 4(orD, A, notB, C);
-  or 5(orE, A, B, C);
-  and 1(out, orA, orB, orC, orD, orE);
+  or 1(orA, A, B, notC);
+  or 2(orB, A, notB, notC);
+  or 3(orC, notA, notB, C);
+  or 4(orD, notA, notB, notC);
+  and 1(out, orA, orB, orC, orD);
   not 1(notA, A);
   not 2(notB, B);
   not 3(notC, C);

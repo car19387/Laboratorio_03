@@ -1,14 +1,14 @@
-  module Tabla01-SOP();
+  module Tabla02-POS();
 
   reg A, B, C;
-  wire or01, or02, or03, or04, or05, notA, notB, notC, out;
+  wire orA, orB, orC, orD, orE, notA, notB, notC, out;
 
-  or 1(or01, notA, notB, notC);
-  or 2(or02, notA, B, notC);
-  or 3(or03, A, notB, notC);
-  or 4(or04, A, notB, C);
-  or 5(or05, A, B, C);
-  and 1(out, or01, or02, or03, or04, or05);
+  or 1(orA, A, B, C);
+  or 2(orB, A, notB, C);
+  or 3(orC, A, notB, notC);
+  or 4(orD, notA, B, C);
+  or 5(orE, notA, B, notC);
+  and 1(out, orA, orB, orC, orD, orE);
   not 1(notA, A);
   not 2(notB, B);
   not 3(notC, C);
@@ -28,6 +28,4 @@
     #1 $finish;
   end
 
-
-
-endmodule
+endmodule  //Revisado
