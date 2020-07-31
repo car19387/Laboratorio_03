@@ -1,20 +1,20 @@
-  module Tabla04-SOP();
+  module Tabla03SOP();
 
   reg A, B, C, D;
-  wire andA, andB, andC, andD, andE, andF, andG notA, notB, notC, notD, out;
+  wire andA, andB, andC, andD, andE, andF, andG, notA, notB, notC, notD, out;
 
-  or 1(out, andA, andB, andC, andD, andE, andF, andG);
-  and 1(andA, notA, notB, notC, notD);
-  and 2(andB, A, notB, C, notD);
-  and 3(andC, A, notB, C, D);
-  and 4(andD, notA, B, C, notD);
-  and 5(andE, notA, B, C, D);
-  and 6(andF, A, notB, notC, notD);
-  and 7(andG, A, notB, C, notD);
-  not 1(notA, A);
-  not 2(notB, B);
-  not 3(notC, C);
-  not 3(notD, D);
+  or O1(out, andA, andB, andC, andD, andE, andF, andG);
+  and Y1(andA, notA, notB, notC, notD);
+  and Y2(andB, notA, notB, notC, D);
+  and Y3(andC, notA, notB, C, notD);
+  and Y4(andD, notA, notB, C, D);
+  and Y5(andE, A, notB, notC, notD);
+  and Y6(andF, A, notB, C, notD);
+  and Y7(andG, A, B, C, notD);
+  not N1(notA, A);
+  not N2(notB, B);
+  not N3(notC, C);
+  not N3(notD, D);
 
 
   initial begin
@@ -40,4 +40,10 @@
     #1 $finish;
   end
 
-endmodule  //Revisado
+  initial
+    begin
+      $dumpfile("Tabla03SOP_tb.vcd");
+      $dumpvars(0,Tabla03SOP);
+    end
+
+endmodule

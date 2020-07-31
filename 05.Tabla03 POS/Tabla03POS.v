@@ -1,22 +1,22 @@
-  module Tabla04-POS();
+  module Tabla03POS();
 
-  reg A, B, C; D;
-  wire orA, orB, orC, orD, orE, orF, orG, orI, notA, notB, notC, notD, out;
+  reg A, B, C, D;
+  wire orA, orB, orC, orD, orE, orF, orG, orH, orI, notA, notB, notC, notD, out;
 
-  or 1(orA, notA, notB, notC, notD);
-  or 2(orB, A, notB, C, D);
-  or 3(orC, A, notB, C, notD);
-  or 4(orD, notA, B, C, notD);
-  or 5(orE, notA, B, notC, notD);
-  or 6(orF, notA, notB, C, D);
-  or 7(orG, notA, notB, C, notD);
-  or 8(orH, notA, notB, notC, D);
-  or 9(orI, notA, notB, notC, notD);
-  and 1(out, orA, orB, orC, orD, orE, orH, orI);
-  not 1(notA, A);
-  not 2(notB, B);
-  not 3(notC, C);
-  not 4(notD, D);
+  or O1(orA, A, notB, C, D);
+  or O2(orB, A, notB, C, notD);
+  or O3(orC, A, notB, notC, D);
+  or O4(orD, A, notB, notC, notD);
+  or O5(orE, notA, B, C, notD);
+  or O6(orF, notA, B, notC, notD);
+  or O7(orG, notA, notB, C, D);
+  or O8(orH, notA, notB, C, notD);
+  or O9(orI, notA, notB, notC, notD);
+  and Y1(out, orA, orB, orC, orD, orE, orF, orG, orH, orI);
+  not Y1(notA, A);
+  not Y2(notB, B);
+  not Y3(notC, C);
+  not Y4(notD, D);
 
   initial begin
     $display("A B C D | Y");
@@ -41,4 +41,10 @@
     #1 $finish;
   end
 
-endmodule  //Revisado
+  initial
+    begin
+      $dumpfile("Tabla03POS_tb.vcd");
+      $dumpvars(0,Tabla03POS);
+    end
+
+endmodule

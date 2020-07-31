@@ -1,17 +1,17 @@
-  module Tabla02-POS();
+  module Tabla02POS();
 
   reg A, B, C;
   wire orA, orB, orC, orD, orE, notA, notB, notC, out;
 
-  or 1(orA, A, B, C);
-  or 2(orB, A, notB, C);
-  or 3(orC, A, notB, notC);
-  or 4(orD, notA, B, C);
-  or 5(orE, notA, B, notC);
-  and 1(out, orA, orB, orC, orD, orE);
-  not 1(notA, A);
-  not 2(notB, B);
-  not 3(notC, C);
+  or O1(orA, A, B, C);
+  or O2(orB, A, notB, C);
+  or O3(orC, A, notB, notC);
+  or O4(orD, notA, B, C);
+  or O5(orE, notA, B, notC);
+  and Y1(out, orA, orB, orC, orD, orE);
+  not Y1(notA, A);
+  not Y2(notB, B);
+  not Y3(notC, C);
 
   initial begin
     $display("A B C | Y");
@@ -28,4 +28,10 @@
     #1 $finish;
   end
 
-endmodule  //Revisado
+  initial
+    begin
+      $dumpfile("Tabla02POS_tb.vcd");
+      $dumpvars(0,Tabla02POS);
+    end
+
+endmodule

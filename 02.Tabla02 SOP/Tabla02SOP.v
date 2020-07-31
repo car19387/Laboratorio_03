@@ -1,15 +1,15 @@
-  module Tabla02-SOP();
+  module Tabla02SOP();
 
   reg A, B, C;
   wire andA, andB, andC, notA, notB, notC, out;
 
-  or 1(out, andA, andB, andC);
-  and 1(andA, notA, notB, C);
-  and 2(andB, A, B, notC);
-  and 3(andC, A, B, C);
-  not 1(notA, A);
-  not 2(notB, B);
-  not 3(notC, C);
+  or  O1(out, andA, andB, andC);
+  and Y1(andA, notA, notB, C);
+  and Y2(andB, A, B, notC);
+  and Y3(andC, A, B, C);
+  not N1(notA, A);
+  not N2(notB, B);
+  not N3(notC, C);
 
   initial begin
     $display("A B C | Y");
@@ -26,4 +26,10 @@
     #1 $finish;
   end
 
-endmodule  //Revisada
+  initial
+    begin
+      $dumpfile("Tabla02SOP_tb.vcd");
+      $dumpvars(0,Tabla02SOP);
+    end
+
+endmodule
