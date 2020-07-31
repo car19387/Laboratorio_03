@@ -1,4 +1,4 @@
-  module Tabla01_SOP();
+  module Tabla01-SOP();
 
   reg A, B, C;
   wire or01, or02, or03, or04, or05, notA, notB, notC, out;
@@ -28,10 +28,6 @@
     #1 $finish;
   end
 
-  initial
-    begin
-      $dumpfile("Tabla01_SOP_tb.vcd");
-      $dumpvars(0, Tabla01_SOP);
-    end
+
 
 endmodule
